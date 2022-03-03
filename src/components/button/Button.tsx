@@ -1,5 +1,5 @@
-import { FC } from "react";
-import styled from "@emotion/styled"
+import { FC, MouseEvent } from "react";
+import styled from "@emotion/styled";
 
 export type ButtonVariant = "raised" | "outlined" | "flat";
 export type ButtonSize = "normal" | "small" | "large";
@@ -8,6 +8,7 @@ export type ButtonProps = {
   label?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  onClick?: (event: MouseEvent) => void;
 };
 
 const commonStyles = {
@@ -36,7 +37,7 @@ const styles = (props: ButtonProps) => ({
   ...commonStyles,
   ...(props.variant === "raised" ? raisedStyles : {}),
   ...(props.variant === "outlined" ? outlinedStyles : {}),
-})
+});
 
 const StyledButton = styled.button(styles);
 
@@ -45,6 +46,11 @@ export const Button: FC<ButtonProps> = ({
   label,
   variant = "raised",
   size = "normal",
+  onClick,
 }) => {
-  return <StyledButton variant={variant}>{label || children}</StyledButton>;
+  return (
+    <StyledButton variant={variant} onClick={onClick}>
+      {label || children}
+    </StyledButton>
+  );
 };
