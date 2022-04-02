@@ -1,3 +1,1 @@
-export const App = () => {
-  return <div>Hello, world!</div>;
-};
+export { Button } from "./components/button/Button";
