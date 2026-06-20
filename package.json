@@ -8,7 +8,7 @@
   "author": "Levon Kirakosyan <noosx.e@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.16.10",
+    "@babel/core": "^7.29.6",
     "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
