@@ -1,31 +1,35 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
 
-export default {
+const meta: Meta<typeof Button> = {
   title: "Button",
   component: Button,
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Raised = Template.bind({});
-Raised.args = {
-  label: "Press me",
-  variant: "raised",
-  size: "normal",
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
-  label: "Press me",
-  variant: "outlined",
-  size: "normal",
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Raised: Story = {
+  args: {
+    label: "Press me",
+    variant: "raised",
+    size: "normal",
+  },
 };
 
-export const Flat = Template.bind({});
-Flat.args = {
-  label: "Press me",
-  variant: "flat",
-  size: "normal",
+export const Outlined: Story = {
+  args: {
+    label: "Press me",
+    variant: "outlined",
+    size: "normal",
+  },
+};
+
+export const Flat: Story = {
+  args: {
+    label: "Press me",
+    variant: "flat",
+    size: "normal",
+  },
 };
