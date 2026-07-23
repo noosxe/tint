@@ -11,14 +11,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix: 
-        node-version: [12.22.x, 14.15.x, 16.x]
+        node-version: [22.x, 24.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - run: yarn build
+        run: pnpm install --frozen-lockfile
+      - run: pnpm build

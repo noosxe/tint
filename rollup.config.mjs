@@ -1,10 +1,9 @@
-import typescript from "rollup-plugin-typescript2";
+import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import dts from "rollup-plugin-dts";
 
-import pkg from "./package.json";
+import pkg from "./package.json" with { type: "json" };
 
 /**
  * @type {import('rollup').RollupOptions}
@@ -26,11 +25,19 @@ const config = [
         sourcemap: true,
       },
     ],
-    plugins: [peerDepsExternal(), nodeResolve(), commonjs(), typescript()],
-    external: ["react"],
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: "types",
+      }),
+    ],
+    external: ["react", "react-dom", "@emotion/react", "@emotion/styled", "@emotion/css"],
   },
   {
-    input: "dist/esm/index.d.ts",
+    input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
   },

@@ -9,6 +9,7 @@ export type ButtonProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
   onClick?: (event: MouseEvent) => void;
+  children?: React.ReactNode;
 };
 
 const commonStyles = {
