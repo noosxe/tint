@@ -127,4 +127,4 @@ storybook-static/
 /result-*
 
 # pi agent harness task outputs
-.pi/
+.pi/tasks/
