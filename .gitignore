@@ -118,3 +118,10 @@ dist
 .pnp.*
 
 storybook-static/
+
+# direnv cache
+.direnv/
+
+# nix build output symlinks
+/result
+/result-*
