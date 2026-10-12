@@ -125,3 +125,6 @@ storybook-static/
 # nix build output symlinks
 /result
 /result-*
+
+# pi agent harness task outputs
+.pi/
