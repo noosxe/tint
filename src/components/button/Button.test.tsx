@@ -9,13 +9,17 @@ describe("Button", () => {
   it("renders its label", () => {
     render(<Button label="Press me" />);
 
-    expect(screen.getByRole("button", { name: "Press me" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Press me" }),
+    ).toBeInTheDocument();
   });
 
   it("renders children when no label is given", () => {
     render(<Button>Click me</Button>);
 
-    expect(screen.getByRole("button", { name: "Click me" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Click me" }),
+    ).toBeInTheDocument();
   });
 
   it("fires onClick when clicked", () => {

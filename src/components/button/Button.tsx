@@ -78,7 +78,6 @@ export const Button: FC<ButtonProps> = ({
   children,
   label,
   variant = "raised",
-  size = "normal",
   onClick,
 }) => {
   return (
