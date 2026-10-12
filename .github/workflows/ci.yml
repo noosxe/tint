@@ -25,3 +25,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - run: pnpm build
+      - name: Build Storybook
+        if: matrix.node-version == '24.x'
+        run: pnpm build-storybook
+      - name: Test
+        run: pnpm test

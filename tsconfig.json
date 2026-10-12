@@ -15,5 +15,5 @@
     "strict": true,
     "target": "es2015"
   },
-  "exclude": ["node_modules", "dist", "**/*.stories.tsx", "**/*.stories.ts", ".storybook"]
+  "exclude": ["node_modules", "dist", "**/*.stories.tsx", "**/*.stories.ts", "**/*.test.tsx", "**/*.test.ts", "src/test", "vitest.config.ts", ".storybook"]
 }
