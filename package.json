@@ -1,9 +1,21 @@
 {
   "name": "tint",
   "version": "0.1.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "repository": "git@github.com:noosxe/tint.git",
   "author": "Levon Kirakosyan <noosx.e@gmail.com>",
   "license": "MIT",
@@ -12,9 +24,6 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-links": "^10.6.1",
     "@storybook/react": "^10.6.1",
     "@storybook/react-vite": "^10.6.1",
@@ -23,6 +32,7 @@
     "@testing-library/react": "^16.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "husky": "^9.0.11",
     "is-ci": "^4.1.0",
     "jsdom": "^30.1.2",
@@ -30,21 +40,19 @@
     "prettier": "^3.9.9",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "rollup": "^4.64.3",
-    "rollup-plugin-dts": "^6.5.1",
     "storybook": "^10.6.1",
     "storybook-dark-mode": "^5.0.0",
-    "tslib": "^2.6.2",
-    "typescript": "^5.5.4",
+    "typescript": "^5.9.3",
     "vite": "^8.3.4",
+    "vite-plugin-dts": "^5.1.2",
     "vitest": "^5.0.3"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.mjs",
-    "dev": "rollup -cw rollup.config.mjs",
+    "build": "vite build",
+    "dev": "vite build --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
